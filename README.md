@@ -30,9 +30,9 @@ First, head to the homepage and enter your details, including your starting poin
 
 ## Technologies Used
 
-Frontend: Vanilla java script, css
-Backend: Supabase
-APIs: Pexel, OpenRoute Service, Nominatim
+**Frontend**: Vanilla java script, css  
+**Backend**: Supabase  
+**APIs**: Pexel, OpenRoute Service, Nominatim  
 
 
 We welcome contributions to WonderWise!
