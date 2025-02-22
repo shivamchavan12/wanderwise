@@ -12,8 +12,8 @@ function Header() {
             <nav>
                 <Link className="button-link" to="/">Home</Link>
                 <Link className="button-link" to="/recipes">Recipes</Link>
-                <Link className="button-link" to="/meal-planner">Meal Planner</Link>
-                <Link className="button-link" to="/pantry">Pantry</Link>
+                <Link className="button-link" to="/meal-planner">Trip Planner 🗺️</Link>
+                <Link className="button-link" to="/pantry">Profile</Link>
                 <Link className="button-link" to="/login">Login/SignIn</Link>
             </nav>
         </div>
