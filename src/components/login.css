@@ -70,7 +70,7 @@ h2 {
 
 .input-field input:focus ~ label,
 .input-field input:not(:placeholder-shown) ~ label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   top: 10px;
   transform: translateY(-120%);
 }

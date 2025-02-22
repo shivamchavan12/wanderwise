@@ -10,7 +10,7 @@ const supabase = createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwa2x5aWtidWJucWNrY2t5aGprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAyMTA4NzIsImV4cCI6MjA1NTc4Njg3Mn0.IhX7e7yzMYKPB12MP9nd4Sqfm7i8h4AO3anfqQGaocs'
 );
 
-const LoginForm = () => {
+const LoginForm = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -48,6 +48,8 @@ const LoginForm = () => {
         setError(error.message);
       } else {
         console.log('Signup successful:', data);
+        localStorage.setItem('loggedIn', 'true');
+        setIsLoggedIn(true);
         navigate('/dashboard'); // Redirect to dashboard
       }
     } else {
@@ -61,6 +63,8 @@ const LoginForm = () => {
         setError(error.message);
       } else {
         console.log('Login successful:', data);
+        localStorage.setItem('loggedIn', 'true');
+        setIsLoggedIn(true);
         navigate('/dashboard'); // Redirect to dashboard
       }
     }
@@ -119,7 +123,7 @@ const LoginForm = () => {
         <div className="register">
           <p>
             {isLogin ? "Don't have an account?" : 'Already have an account?'}
-            <a href="#" onClick={toggleForm}>{isLogin ? ' Register' : 'Login'}</a>
+            <a href="#" onClick={toggleForm}>{isLogin ? ' Register' : ' Login'}</a>
           </p>
         </div>
       </form>
