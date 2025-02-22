@@ -1,0 +1,256 @@
+/* TripPlanner.css */
+
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7fc;
+    color: #333;
+  }
+  
+  /* Container */
+  .planner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0;
+    display: inline-block;
+  }
+  .header svg {
+    vertical-align: middle;
+    margin-left: 10px;
+    color: #4A90E2;
+  }
+  
+  /* Planning Form */
+  .planning-form {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+  }
+  .planning-form .form-group {
+    margin-bottom: 15px;
+  }
+  .planning-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  .planning-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  .planning-form input:focus {
+    outline: none;
+    border-color: #4A90E2;
+  }
+  .planning-form button {
+    display: block;
+    width: 100%;
+    background: #4A90E2;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .planning-form button:hover {
+    background: #357ABD;
+    transform: translateY(-2px);
+  }
+  
+  /* Error Message */
+  .error {
+    color: #ff4d4d;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Recommendations Tabs */
+  .recommendations-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .recommendations-tabs button {
+    background: #eee;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 600;
+  }
+  .recommendations-tabs button.active {
+    background: #4A90E2;
+    color: #fff;
+  }
+  .recommendations-tabs button:hover {
+    background: #ccc;
+  }
+  
+  /* Recommendations Container */
+  .recommendations-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+  }
+  
+  /* Itinerary Section */
+  .itinerary-section .day-card {
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .day-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .day-card ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+  }
+  .day-card ul li {
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  /* Accommodations Grid */
+  .accommodations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .accommodation-card {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .accommodation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .accommodation-card h4 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  .accommodation-card p {
+    margin: 5px 0 0;
+    color: #555;
+  }
+  
+  /* Transport List */
+  .transport-list .transport-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  .transport-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  .transport-item p {
+    margin: 0;
+    color: #555;
+  }
+  
+  /* List Sections (Packing, Safety, Cuisine) */
+  .list-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .list-section ul li {
+    background: #f0f0f0;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    color: #555;
+  }
+  
+  /* Gallery Section */
+  .gallery-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  .gallery-section img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .gallery-section img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Map Section */
+  .map-section img {
+    width: 100%;
+    border-radius: 12px;
+  }
+  
+  /* Smart Features */
+  .smart-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .feature-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    flex: 1 1 300px;
+    max-width: 400px;
+    text-align: center;
+  }
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  .budget-analyzer p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .collaboration-interface {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+    color: #555;
+  }
+  
