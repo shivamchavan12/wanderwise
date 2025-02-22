@@ -49,10 +49,10 @@ For any queries or suggestions, please contact us at [email@example.com](mailto:
 # Collect the best memories! 
 
 From people behind Wanderwise:
-**Ninad Mahajan**
-**Pallavi Chimanchode**
-**Ritesh Chaudhari**
-**Shivam Chavan**
+**Ninad Mahajan**  
+**Pallavi Chimanchode**  
+**Ritesh Chaudhari**  
+**Shivam Chavan**  
 
 We want you to have the best time without the hassle of planning. Let us handle the details while you focus on exploring, capturing memories, and truly enjoying your trip!
 
