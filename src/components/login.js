@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createClient } from '@supabase/supabase-js';
 import './login.css';
 
+
 // Initialize Supabase
 const supabase = createClient(
   'https://epklyikbubnqckckyhjk.supabase.co',
@@ -74,6 +75,7 @@ const LoginForm = () => {
   };
 
   return (
+    <div id="login-page">
     <div className="wrapper">
       <form onSubmit={handleSubmit}>
         <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
@@ -121,6 +123,7 @@ const LoginForm = () => {
           </p>
         </div>
       </form>
+    </div>
     </div>
   );
 };
