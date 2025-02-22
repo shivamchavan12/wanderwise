@@ -58,5 +58,5 @@ We want you to have the best time without the hassle of planning. Let us handle 
 
 # Have a fun trip!
 
-Truly, 
-Yours hungrily 😊
+Yours Hungrily, 
+😊
