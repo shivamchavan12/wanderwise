@@ -51,10 +51,11 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
         <nav>
           <Link className="button-link" to="/">Home</Link>
           <Link className="button-link" to="/recipes">Contact Us</Link>
+          <Link className="button-link" to="/Tripplanner">Trip Planner 🗺️</Link>
           
           {isLoggedIn ? (
             <>
-              <Link className="button-link" to="/meal-planner">Trip Planner 🗺️</Link>
+              <Link className="button-link" to="/Tripplanner">Trip Planner 🗺️</Link>
               <Link className="button-link" to="/pantry">Profile</Link>
               <button className="button-link" onClick={handleLogout}>Logout</button>
             </>

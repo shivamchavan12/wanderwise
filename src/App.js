@@ -4,6 +4,7 @@ import Header from './components/header';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 import Home from './components/Home';
+import Trip from './components/Tripplanner';
 
 // function App() {
 //   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,6 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/Tripplanner" element={<Trip />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
