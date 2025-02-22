@@ -10,11 +10,11 @@ function Header() {
                 <Link className="name" to="/">WanderWise</Link>
             </div>
             <nav>
-                <Link to="/">Home</Link>
-                <Link to="/recipes">Recipes</Link>
-                <Link to="/meal-planner">Meal Planner</Link>
-                <Link to="/pantry">Pantry</Link>
-                <Link to="/login">Login/SignIn</Link>
+                <Link className="button-link" to="/">Home</Link>
+                <Link className="button-link" to="/recipes">Recipes</Link>
+                <Link className="button-link" to="/meal-planner">Meal Planner</Link>
+                <Link className="button-link" to="/pantry">Pantry</Link>
+                <Link className="button-link" to="/login">Login/SignIn</Link>
             </nav>
         </div>
     </header>

@@ -117,7 +117,7 @@ const LoginForm = () => {
         <div className="register">
           <p>
             {isLogin ? "Don't have an account?" : 'Already have an account?'}
-            <a href="#" onClick={toggleForm}>{isLogin ? 'Register' : 'Login'}</a>
+            <a href="#" onClick={toggleForm}>{isLogin ? ' Register' : 'Login'}</a>
           </p>
         </div>
       </form>
