@@ -1,72 +1,62 @@
+# WanderWise: Your Personalized Travel Itinerary Planner!
 
-# Getting Started with Create React App
+## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WanderWise is an intelligent travel planning application that creates customized itineraries based on user input. It suggests a comprehensive travel plan including timeframes, transportation, accommodations, attractions, local cuisine, shopping opportunities, and activities according to your personal preferances!🏖️
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Destination-based Planning**: Enter your destination and trip duration to get started.
+- **Smart Suggestions**: Receive recommendations for:
+  - Suitable timeframes for travel
+  - Optimal modes of transportation
+  - Must-visit locations and attractions
+  - Accommodation options
+  - Local delicacies and must-try foods
+  - Shopping opportunities
+- **Customizable Itineraries**: Add or remove attractions and adjust the number of places to visit.
+- **Flexible Scheduling**: Automatically adjusts your itinerary based on your preferences.
 
-### `npm start`
+## How It Works
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Input**: User provides destination and trip duration.
+2. **Analysis**: Our algorithm analyzes travel data, user preferences, and popular choices.
+3. **Generation**: A comprehensive itinerary is created.
+4. **Customization**: Users can modify the generated itinerary to their liking.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+First, head to the homepage and enter your details, including your starting point, destination, preferences, and recommendations. In just a few clicks, your fully planned itinerary will be ready—complete with suggested destinations, budget breakdowns, and everything you need for a seamless trip!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+Frontend: Vanilla java script, css
+Backend: Supabase
+APIs: Pexel, OpenRoute Service, Nominatim
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We welcome contributions to WonderWise!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
+This project is licensed under the [MIT License](LICENSE).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contact
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For any queries or suggestions, please contact us at [email@example.com](mailto:email@example.com).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Collect the best memories! 
 
-## Learn More
+From people behind Wanderwise:
+Ninad Mahajan
+Pallavi Chimanchode
+Ritesh Chaudhari
+Shivam Chavan
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+We want you to have the best time without the hassle of planning. Let us handle the details while you focus on exploring, capturing memories, and truly enjoying your trip!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Have a fun trip!
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
+Truly, 
+Yours hungrily 😊
