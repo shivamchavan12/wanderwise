@@ -48,7 +48,7 @@ For any queries or suggestions, please contact us at [email@example.com](mailto:
 
 # Collect the best memories! 
 
-From people behind Wanderwise:
+From people behind Wanderwise:  
 **Ninad Mahajan**  
 **Pallavi Chimanchode**  
 **Ritesh Chaudhari**  
