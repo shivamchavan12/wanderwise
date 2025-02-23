@@ -1,25 +1,15 @@
-/* Base styles */
-.hi{
-  background-image: url('../assests/hello.png');
-  width: 100%; /* Adjust according to your needs */
-  height: 90%; /* Adjust the height as needed */
-  background-size: contain; /* Scale the background image to fit the container */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  background-position: center; /* Center the image in the container */
-  background-color: white;
-}
-
+/* Profile Page Container */
 .profile-page {
   min-height: 95vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: left;  
+  align-items: center;
   justify-content: center;
   width: 100vw;
 }
 
-/* Success Alert */
+/* Alert */
 .alert {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -32,62 +22,49 @@
   animation: slideDown 0.3s ease-out;
 }
 
-/* @keyframes slideDown {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-} */
-
-/* Profile Card */
+/* Profile Card: Container for both form and image */
 .profile-card {
   background: white;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 700px;
+  width: 70%;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+/* Card Container: Holds the form and the image side by side */
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1rem; /* Reduced gap brings them closer */
+}
+
+/* Form Section (Left Side) */
+.form-section {
+  flex: 1;
   padding: 2rem;
-  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;      /* Vertically center the form */
+  justify-content: center;  /* Horizontally center the form */
+  height: 100%;             /* Fill the available height */
+  z-index:100;
 }
-
-.profile-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Profile Content */
+/* Profile Content and Form Grid */
 .profile-content {
   display: flex;
-  gap:1;
-}
-
-/* Left Section */
-.profile-left {
-  display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
-  transition: opacity 0.3s ease;
-}
-.preview-label {
-  font-size: 0.75rem;
-  color: #6b7280;
-}
-
-/* Right Section */
-.profile-right {
-  flex: 1;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 1rem; /* Reduced gap */
 }
 
+/* Input Groups */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -128,7 +105,7 @@ textarea.i {
   min-height: 100px;
 }
 
-/* Buttons */
+/* Button Group and Buttons */
 .button-group {
   display: flex;
   gap: 1rem;
@@ -178,34 +155,49 @@ textarea.i {
   background-color: #4b5563;
 }
 
-/* Responsive Design */
-/* For tablets and smaller screens */
-@media (max-width: 768px) {
-  .profile-content {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Image Section (Right Side) using CSS background */
+.image-section {
+  flex: 1;
+  background-image: url('../assests/hello.png'); /* Ensure this path is correct */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 300px; /* Adjust height as needed */
+  width:100%;
+}
 
+/* Responsive Adjustments */
+/* Tablets and Smaller Screens */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-section {
+    padding: 1.5rem;
+  }
+  
   .form-grid {
     grid-template-columns: 1fr;
   }
-
+  
   .input-group.full-width {
     grid-column: span 1;
   }
   
-  .profile-card {
-    padding: 1.5rem;
+  .image-section {
+    min-height: 200px;
   }
 }
 
-/* For mobile devices */
+/* Mobile Devices */
 @media (max-width: 480px) {
   .profile-page {
     padding: 1rem;
   }
   
-  .profile-card {
+  .form-section {
     padding: 1rem;
   }
   
@@ -219,11 +211,7 @@ textarea.i {
     font-size: 0.9rem;
   }
   
-  .profile-name {
-    font-size: 1.3rem;
-  }
-  
-  .profile-email {
-    font-size: 0.8rem;
+  .image-section {
+    min-height: 150px;
   }
 }
