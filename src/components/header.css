@@ -25,10 +25,14 @@
     font-weight: bold;
     text-decoration: none;
     color: white;
+
 }
 
 .logo {
     padding: 10px 15px;
+    display: flex;
+  align-items: center; /* Centers items vertically */
+  gap: 10px; 
 }
 
 /* Navigation Styles */
@@ -192,4 +196,31 @@ nav a {
     .menu-button {
         font-size: 1.3rem;
     }
-}
+} 
+.rotating-logo {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    border-radius: 50%;
+    background-image: url("../assests/logo.jpg"); /* Replace with actual path */
+    background-size: cover;
+    background-position: center;
+    animation: rotateLogo 5s linear infinite;
+  }
+  
+  /* Rotating animation */
+  @keyframes rotateLogo {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Styling for the WanderWise text */
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+  }

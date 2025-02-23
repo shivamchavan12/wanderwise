@@ -73,8 +73,9 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
   return (
     <header className={`sticky-header ${headerClass} ${hideHeader ? "hide" : ""}`}>
       <div className="logo">
-        <Link className="name" to="/">WanderWise</Link>
-      </div>
+      <div className="rotating-logo"></div>
+      <Link className="name" to="/">WanderWise</Link>
+    </div>
       {/* Mobile menu button */}
       <button className="menu-button" onClick={toggleMenu}>
         &#9776;
