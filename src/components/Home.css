@@ -8,18 +8,18 @@
   font-display: swap;
 }
 
-/* Reset
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 /* Banner Section */
 .banner-section {
   position: relative;
-  width: 100vw; 
-  height: 100vh; /* Changed from 100vh to 50vh */
+  width: 100vw;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -41,7 +41,7 @@
 
 .banner-title {
   font-family: 'Lightning', sans-serif;
-  font-size: 6rem; /* Reduced from 8rem to better fit smaller height */
+  font-size: 6rem;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: 4px;
@@ -49,6 +49,56 @@
   z-index: 3;
 }
 
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: -10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  transform: translateX(-50%) translateY(5px);
+}
+
+.scroll-indicator:active {
+  transform: translateX(-50%) translateY(10px);
+}
+
+.chevron-down {
+  color: white;
+  animation: bounce 2s infinite;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover .chevron-down {
+  opacity: 1;
+}
+
+.chevron-down.delayed {
+  animation: bounce 2s infinite;
+  animation-delay: 0.5s;
+  margin-top: -25px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -67,20 +117,6 @@
   background: white;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .banner-title {
-    font-size: 3rem; /* Adjusted for mobile */
-  }
-  
-  .banner-section {
-    height: 40vh; /* Slightly smaller on mobile */
-  }
-}
-
-/* Rest of your existing CSS remains the same */
-
-/* Rest of your existing CSS remains the same */
 /* Features Section */
 .features-section {
   padding: 40px 20px;
@@ -173,28 +209,35 @@
   line-height: 1.5;
 }
 
-/* Responsive Design */
+/* Media Queries */
 @media (max-width: 768px) {
   .banner-title {
     font-size: 4rem;
+  }
+
+  .banner-section {
+    height: 40vh;
   }
 
   .feature-container {
     flex-direction: column;
     margin: 50px 0;
   }
-  
+
   .feature-container.right {
     flex-direction: column;
   }
-  
+
   .feature-image {
     max-width: 100%;
     margin-bottom: 30px;
   }
-  
+
   .feature-content {
     padding: 0;
   }
-}
 
+  .scroll-indicator {
+    bottom: 20px;
+  }
+}
