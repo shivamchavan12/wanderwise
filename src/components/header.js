@@ -56,7 +56,7 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
           {isLoggedIn ? (
             <>
               <Link className="button-link" to="/Tripplanner">Trip Planner 🗺️</Link>
-              <Link className="button-link" to="/pantry">Profile</Link>
+              <Link className="button-link" to="/form">Profile</Link>
               <button className="button-link" onClick={handleLogout}>Logout</button>
             </>
           ) : (
