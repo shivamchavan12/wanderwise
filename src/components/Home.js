@@ -1,48 +1,127 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import backgroundImage from "../assests/homebackground.jpg";
+import { Map, Clock, Zap, ChevronDown } from "lucide-react";
+import backgroundImage from "../assests/bg1.jpg";
+import parisImage from "../assests/paris.jpg";
+import tokyoImage from "../assests/tokyo.jpg";
 
 const Home = () => {
-  const navigate = useNavigate(); // Create the navigate function
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-  // Function to handle button click
+    document.querySelectorAll(".feature-container").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleStartPlanning = () => {
-    navigate("/tripplanner"); // Redirect to the Trip Planner page
+    navigate("/tripplanner");
+  };
+
+  const handleScroll = () => {
+    const featuresSection = document.querySelector('.features-section');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
-    <div className="home-container">
-      {/* Transparent Header */}
-      <header className="transparent-header">
-        <h1 className="logo">WanderWise</h1>
-      </header>
-
-      {/* Hero Section with Background Image */}
-      <div
-        className="hero-section"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        <div className="overlay">
-          <h1 className="hero-title">WanderWise</h1>
-          <button className="start-button" onClick={handleStartPlanning}>Start Planning</button>
+    <>
+      {/* Banner Section */}
+      <div className="banner-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="banner-overlay">
+          <h1 className="banner-title">WanderWise</h1>
+          <div className="scroll-indicator" onClick={handleScroll} role="button" tabIndex={0}>
+            <ChevronDown className="chevron-down" size={40} />
+            <ChevronDown className="chevron-down delayed" size={40} />
+          </div>
         </div>
       </div>
 
-      {/* Favorite Places Section */}
-      <section className="favorite-places">
-        <h2 className="section-title">Favorite Places</h2>
-        <div className="places-grid">
-          {["Paris", "Bali", "New York"].map((place, index) => (
-            <div key={index} className="place-card">
-              <h3>{place}</h3>
-              <p>Explore the beauty of {place} with curated travel plans.</p>
+      <div className="home-container">
+        {/* Features Section */}
+        <section className="features-section">
+          {/* First Feature Set */}
+          <div className="feature-container">
+            <img src={parisImage} alt="Paris" className="feature-image" />
+            <div className="feature-content">
+              <h2 className="feature-title">Smart Travel Planning</h2>
+              <div className="feature-list">
+                <div className="feature-item">
+                  <Map className="feature-icon" />
+                  <div className="feature-text">
+                    <h4>Intelligent Routing</h4>
+                    <p>Optimize your daily itinerary with our smart routing algorithm</p>
+                  </div>
+                </div>
+                <div className="feature-item">
+                  <Clock className="feature-icon" />
+                  <div className="feature-text">
+                    <h4>Time Management</h4>
+                    <p>Perfect timing suggestions for attractions and activities</p>
+                  </div>
+                </div>
+                <div className="feature-item">
+                  <Zap className="feature-icon" />
+                  <div className="feature-text">
+                    <h4>Quick Planning</h4>
+                    <p>Create comprehensive travel plans in minutes</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-      {/* <Footer /> */}
-    </div>
+          </div>
+
+          {/* Second Feature Set */}
+          <div className="feature-container right">
+            <img src={tokyoImage} alt="Tokyo" className="feature-image" />
+            <div className="feature-content">
+              <h2 className="feature-title">Personalized Experience</h2>
+              <div className="feature-list">
+                <div className="feature-item">
+                  <Map className="feature-icon" />
+                  <div className="feature-text">
+                    <h4>Custom Recommendations</h4>
+                    <p>Get personalized suggestions based on your preferences</p>
+                  </div>
+                </div>
+                <div className="feature-item">
+                  <Clock className="feature-icon" />
+                  <div className="feature-text">
+                    <h4>Flexible Scheduling</h4>
+                    <p>Easily adjust your plans on the go</p>
+                  </div>
+                </div>
+                <div className="feature-item">
+                  <Zap className="feature-icon" />
+                  <div className="feature-text">
+                    <h4>Local Insights</h4>
+                    <p>Access curated tips from local experts</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   );
 };
 
