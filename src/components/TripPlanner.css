@@ -326,4 +326,11 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
+  footer {
+    width: 100vw;                /* Span full viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;          /* Shift left by half viewport width */
+    margin-right: -50vw;         /* Shift right by half viewport width */               /* Text color */
+  }

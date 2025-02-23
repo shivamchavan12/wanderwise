@@ -125,12 +125,54 @@ button:hover {
   margin-top: 30px;
   color: #fff;
 }
+
+/* Updated to ensure the background image spans the full screen */
 #login-page {
-  background: url('../assests/backgroundimg.jpg'); 
+  background: url('../assests/backgroundimg.jpg');
+  background-position: center;
   background-size: cover;
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 80px; /* Push content down below the fixed header */
+}
+
+/* Responsive adjustments for tablets and small screens */
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+    padding: 20px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .input-field input {
+    height: 35px;
+    font-size: 15px;
+  }
+  button {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 480px) {
+  .wrapper {
+    width: 95%;
+    padding: 15px;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  .input-field input {
+    height: 32px;
+    font-size: 14px;
+  }
+  button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 }
