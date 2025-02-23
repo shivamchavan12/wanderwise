@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import { Map, Clock, Zap } from "lucide-react";
+import { Map, Clock, Zap, ChevronDown } from "lucide-react";
 import backgroundImage from "../assests/bg1.jpg";
 import parisImage from "../assests/paris.jpg";
 import tokyoImage from "../assests/tokyo.jpg";
@@ -32,12 +32,26 @@ const Home = () => {
     navigate("/tripplanner");
   };
 
+  const handleScroll = () => {
+    const featuresSection = document.querySelector('.features-section');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <>
       {/* Banner Section */}
       <div className="banner-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="banner-overlay">
           <h1 className="banner-title">WanderWise</h1>
+          <div className="scroll-indicator" onClick={handleScroll} role="button" tabIndex={0}>
+            <ChevronDown className="chevron-down" size={40} />
+            <ChevronDown className="chevron-down delayed" size={40} />
+          </div>
         </div>
       </div>
 
