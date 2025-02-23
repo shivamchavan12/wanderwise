@@ -1,9 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import backgroundImage from "../assests/homebackground.jpg";
 import Paris from "../assests/paris.jpg";
 
 const Home = () => {
+  const navigate = useNavigate(); // Create the navigate function
+
+  // Function to handle button click
+  const handleStartPlanning = () => {
+    navigate("/tripplanner"); // Redirect to the Trip Planner page
+  };
+
   return (
     <div className="home-container">
       {/* Transparent Header */}
@@ -18,7 +26,7 @@ const Home = () => {
       >
         <div className="overlay">
           <h1 className="hero-title">WanderWise</h1>
-          <button className="start-button">Start Planning</button>
+          <button className="start-button" onClick={handleStartPlanning}>Start Planning</button>
         </div>
       </div>
 
@@ -34,11 +42,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-
-      {/* Footer Section */}
-      <footer className="footer">
-        <p>&copy; 2025 WanderWise. All rights reserved.</p>
-      </footer>
+      {/* <Footer /> */}
     </div>
   );
 };
