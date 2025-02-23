@@ -2,7 +2,7 @@
 .home-container {
   text-align: center;
   background-color: #f5f5f5;
-  width: 100vw;  /* Fits the screen */
+  width: 99vw;  /* Fits the screen */
   margin: 0 auto; /* Centers the container */
 }
 
@@ -35,7 +35,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  border:2px blue solid;
 }
 
 .overlay {
