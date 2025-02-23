@@ -66,7 +66,6 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
       </div>
       <nav>
         <Link className="button-link" to="/">Home</Link>
-        <Link className="button-link" to="/ContactUs">Contact Us</Link>
 
         {isLoggedIn ? (
           <>

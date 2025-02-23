@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header';
 import Login from './components/login';
-import Dashboard from './components/dashboard';
 import Home from './components/Home';
 import Trip from './components/Tripplanner';
 import Profile from './components/form';
@@ -49,7 +48,6 @@ function App() {
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/Tripplanner" element={<Trip />} />
         <Route path="/form" element={<Profile />} />
-        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
