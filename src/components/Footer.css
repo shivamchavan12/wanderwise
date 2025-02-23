@@ -68,4 +68,25 @@
     padding: 10px 0;
     background-color: black;
   }
+  .footer-section ul li h3 {
+    margin-top: 20px; /* Adjust the spacing as needed */
+  }
+  
+  .linkedin-links {
+    display: flex;
+    gap: 15px; /* Adds spacing between links */
+    flex-wrap: wrap; /* Ensures responsiveness */
+    margin-top: 10px; /* Adds space between heading and links */
+  }
+  
+  .linkedin-links a {
+    text-decoration: none;
+    color: #0077b5; /* LinkedIn blue color */
+    font-weight: bold;
+  }
+  
+  .linkedin-links a:hover {
+    text-decoration: underline;
+  }
+  
   
