@@ -52,7 +52,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
         console.log('Signup successful:', data);
         localStorage.setItem('loggedIn', 'true');
         setIsLoggedIn(true);
-        navigate('/dashboard'); // Redirect to dashboard
+        navigate('/Home'); // Redirect to dashboard
       }
     } else {
       // Login logic

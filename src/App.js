@@ -47,7 +47,7 @@ function App() {
     <Router>
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
-        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/Tripplanner" element={<Trip />} />
         <Route path="/ForgetPassword" element={<Forget />} />
