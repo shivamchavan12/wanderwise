@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createClient } from '@supabase/supabase-js';
 import './login.css';
+import { Link } from "react-router-dom"; 
 
 
 // Initialize Supabase
@@ -9,6 +10,7 @@ const supabase = createClient(
   'https://epklyikbubnqckckyhjk.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwa2x5aWtidWJucWNrY2t5aGprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAyMTA4NzIsImV4cCI6MjA1NTc4Njg3Mn0.IhX7e7yzMYKPB12MP9nd4Sqfm7i8h4AO3anfqQGaocs'
 );
+
 
 const LoginForm = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState('');
@@ -50,7 +52,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
         console.log('Signup successful:', data);
         localStorage.setItem('loggedIn', 'true');
         setIsLoggedIn(true);
-        navigate('/dashboard'); // Redirect to dashboard
+        navigate('/Home'); // Redirect to dashboard
       }
     } else {
       // Login logic
@@ -65,7 +67,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
         console.log('Login successful:', data);
         localStorage.setItem('loggedIn', 'true');
         setIsLoggedIn(true);
-        navigate('/dashboard'); // Redirect to dashboard
+        navigate('/'); // Redirect to dashboard
       }
     }
   };
@@ -110,14 +112,14 @@ const LoginForm = ({ setIsLoggedIn }) => {
 
         {error && <p className="error-message">{error}</p>}
 
-        <div className="forget">
-          <label htmlFor="remember">
-            <input type="checkbox" id="remember" checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} />
-            <p>Remember me</p>
-          </label>
-          <a href="#">Forgot password?</a>
-        </div>
 
+      <div className="forget">
+        <label htmlFor="remember">
+       <input type="checkbox" id="remember" checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} />
+       <p>Remember me</p>
+       </label>
+       <Link to="/ForgetPassword">Forgot password?</Link>
+        </div>
         <button type="submit">{isLogin ? 'Log In' : 'Sign Up'}</button>
         
         <div className="register">

@@ -1,4 +1,4 @@
-/* .contact-page {
+.contact-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,4 +57,4 @@ button:hover {
     margin-top: 15px;
     color: green;
     font-weight: bold;
-} */
+}

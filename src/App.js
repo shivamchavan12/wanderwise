@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header';
 import Login from './components/login';
-import Dashboard from './components/dashboard';
 import Home from './components/Home';
 import Trip from './components/Tripplanner';
-import ContactUs from './components/ContactUs';
+import Footer from './components/Footer';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import Forget from "./components/ForgetPassword"; // Import it
+import Profile from './components/form';
 
 
 // function App() {
@@ -48,9 +50,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/Tripplanner" element={<Trip />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/ForgetPassword" element={<Forget />} />
+        <Route path="/form" element={<Profile />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

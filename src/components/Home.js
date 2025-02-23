@@ -42,11 +42,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-
-      {/* Footer Section */}
-      <footer className="footer">
-        <p>&copy; 2025 WanderWise. All rights reserved.</p>
-      </footer>
+      {/* <Footer /> */}
     </div>
   );
 };
