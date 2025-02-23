@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import './TripPlanner.css';
 import axios from 'axios';
 
-const ORS_API_KEY = '5b3ce3597851110001cf6248cf81ba6ea51c4b89a5d8a0d0fce679b5'; // Replace with your ORS API key
-const MISTRAL_API_KEY = 'ypklpLr8eEIxjRjgMJDrsl3Z5DXkAMy1'; // Replace with your Mistral API key
+const ORS_API_KEY = '5b3ce3597851110001cf6248cf81ba6ea51c4b89a5d8a0d0fce679b5';
+const MISTRAL_API_KEY = 'ypklpLr8eEIxjRjgMJDrsl3Z5DXkAMy1';
 const MISTRAL_API_URL = 'https://api.mistral.ai/v1/chat/completions';
-const PEXELS_API_KEY = 'EZVHwYLiDg5oJvO30ybHbTXEuFOVH4AC123xj7SaeP1nigk4Fcdw8Hk1'; // Replace with your Pexels API key
+const PEXELS_API_KEY = 'EZVHwYLiDg5oJvO30ybHbTXEuFOVH4AC123xj7SaeP1nigk4Fcdw8Hk1';
 
 // Function to call Mistral API for travel recommendations
 async function mistralChat(prompt, systemMessage = 'You are an expert travel assistant.') {
@@ -20,7 +20,7 @@ async function mistralChat(prompt, systemMessage = 'You are an expert travel ass
         'Authorization': `Bearer ${MISTRAL_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'mistral-large-latest', // Change this to your desired Mistral model if needed
+        model: 'mistral-large-latest',
         messages: [
           { role: 'system', content: systemMessage },
           { role: 'user', content: prompt }
@@ -64,7 +64,6 @@ const fetchPexelsImages = async (destination) => {
       }
     );
 
-    // Extract images from the response
     const allImages = response.data.photos.map((photo) => ({
       id: photo.id,
       src: photo.src.medium,
@@ -96,34 +95,6 @@ async function geocodePlace(placeName) {
   }
 }
 
-// Function to fetch destination coordinates and return a static map URL from OpenRouteService,
-// including markers for tourist places (if provided)
-async function fetchMapUrl(destination, markers = []) {
-  try {
-    console.log("Fetching map for:", destination);
-    const geoResponse = await fetch(`https://api.openrouteservice.org/geocode/search?api_key=${ORS_API_KEY}&text=${encodeURIComponent(destination)}`);
-    if (!geoResponse.ok) throw new Error('Geocoding API request failed');
-
-    const geoData = await geoResponse.json();
-    const features = geoData.features;
-    if (features && features.length > 0) {
-      const [lon, lat] = features[0].geometry.coordinates;
-      let markersParam = "";
-      if (markers.length > 0) {
-        // Format markers as "lon,lat" pairs separated by the pipe symbol
-        markersParam = "&markers=" + markers.map(m => `${m.lon},${m.lat}`).join("|");
-      }
-      const url = `https://api.openrouteservice.org/maps/static?api_key=${ORS_API_KEY}&layer=basic&zoom=12&center=${lon},${lat}&size=600,400${markersParam}`;
-      console.log("Map URL:", url);
-      return url;
-    }
-    return null;
-  } catch (error) {
-    console.error('Geocoding Error:', error);
-    return null;
-  }
-}
-
 function TripPlanner() {
   const [formData, setFormData] = useState({
     startLocation: '',
@@ -137,9 +108,7 @@ function TripPlanner() {
     specialNeeds: ''
   });
 
-  // Local state for the interests input text
   const [interestsText, setInterestsText] = useState('');
-
   const [recommendations, setRecommendations] = useState({
     itinerary: [],
     accommodations: [],
@@ -150,12 +119,11 @@ function TripPlanner() {
   });
   
   const [images, setImages] = useState([]);
-  const [mapUrl, setMapUrl] = useState(null);
+  const [activeTab, setActiveTab] = useState('itinerary');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState('itinerary');
 
-  // generateTravelPlan now accepts a data parameter with current form inputs
+  // generateTravelPlan calls the APIs and sets state accordingly
   const generateTravelPlan = async (data) => {
     setLoading(true);
     setError(null);
@@ -204,23 +172,8 @@ function TripPlanner() {
       const fetchedImages = await fetchPexelsImages(data.destination);
       setImages(fetchedImages);
 
-      // Fetch tourist places from the destination
-      const touristPrompt = `List the top 5 must-visit tourist places in ${data.destination}. Provide only the names.`;
-      const touristResponse = await mistralChat(touristPrompt);
-      const touristPlaces = parseList(touristResponse);  // Array of place names
-
-      // Geocode each tourist place to get markers for the map
-      const markers = [];
-      for (const place of touristPlaces) {
-        const coords = await geocodePlace(place);
-        if (coords) {
-          markers.push(coords);
-        }
-      }
-
-      // Fetch static map URL including markers for tourist places
-      const mapImageUrl = await fetchMapUrl(data.destination, markers);
-      setMapUrl(mapImageUrl);
+      // For the map, we no longer need to build a URL with markers.
+      // The Google Map iframe will perform a search for "tourist attractions in [destination]".
 
     } catch (error) {
       setError('Failed to generate travel plan. Please check your inputs and try again.');
@@ -230,7 +183,7 @@ function TripPlanner() {
     }
   };
 
-  // Helper to parse itinerary: expects days separated by double newlines and each day with a title and activities
+  // Helper to parse itinerary responses
   const parseItinerary = (response) => {
     if (!response) return [];
     const days = response.split('\n\n');
@@ -250,12 +203,9 @@ function TripPlanner() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Merge interests input into form data
     const updatedInterests = interestsText.split(',').map(i => i.trim()).filter(i => i !== '');
     const newFormData = { ...formData, interests: updatedInterests };
 
-    // Date validation
     if (new Date(newFormData.startDate) >= new Date(newFormData.endDate)) {
       setError('End date must be after start date');
       return;
@@ -410,7 +360,7 @@ function TripPlanner() {
             ) : (
               <p>No itinerary available based on your input.</p>
             )}
-          </motion.div>                
+          </motion.div>
         )}
 
         {activeTab === 'accommodations' && (
@@ -421,9 +371,7 @@ function TripPlanner() {
                 return (
                   <div key={index} className="accommodation-card">
                     <h4>{parts[0]}</h4>
-                    {parts.length > 1 && (
-                      <p>{parts.slice(1).join(':')}</p>
-                    )}
+                    {parts.length > 1 && <p>{parts.slice(1).join(':')}</p>}
                   </div>
                 );
               })
@@ -505,10 +453,20 @@ function TripPlanner() {
         )}
 
         {activeTab === 'map' && (
-          <div className="map-section">
-            {mapUrl ? (
-              <img src={mapUrl} alt={`Map of ${formData.destination}`} />
-            ) : <p>Map not available.</p>}
+          <div className="map-section" style={{ textAlign: 'center', padding: '1rem' }}>
+            {formData.destination ? (
+              <iframe
+                title="Google Map"
+                width="600"
+                height="450"
+                style={{ border: 0, maxWidth: '100%' }}
+                loading="lazy"
+                allowFullScreen
+                src={`https://maps.google.com/maps?q=tourist attractions in ${encodeURIComponent(formData.destination)}&output=embed`}
+              ></iframe>
+            ) : (
+              <p>Map not available.</p>
+            )}
           </div>
         )}
       </div>
