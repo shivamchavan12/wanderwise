@@ -43,7 +43,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any queries or suggestions, please contact us at [email@example.com](mailto:email@example.com).
+For any queries or suggestions, please contact us at [pallavi@gmail.com](mailto:pallavi1112005@gamil.com).
 
 
 # Collect the best memories! 
