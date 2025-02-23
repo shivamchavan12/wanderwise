@@ -57,7 +57,7 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
     if (!error) {
       localStorage.removeItem("loggedIn");
       setIsLoggedIn(false);
-      navigate("/login");
+      navigate("/");
     } else {
       console.error("Error logging out:", error.message);
     }
@@ -78,7 +78,7 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
             <Link className="button-link" onClick={handleLogout}>Logout</Link>
           </>
         ) : (
-          <Link className="button-link" to="/login">Login/SignIn</Link>
+          <Link className="button-link" to="/login">Login/Sign Up</Link>
         )}
       </nav>
     </header>
