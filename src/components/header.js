@@ -6,7 +6,7 @@ import "./header.css"; // This will be globally applied
 // Initialize Supabase
 const supabase = createClient(
   "https://epklyikbubnqckckyhjk.supabase.co",
-  "your-supabase-api-key"
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwa2x5aWtidWJucWNrY2t5aGprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAyMTA4NzIsImV4cCI6MjA1NTc4Njg3Mn0.IhX7e7yzMYKPB12MP9nd4Sqfm7i8h4AO3anfqQGaocs"
 );
 
 function Header({ isLoggedIn, setIsLoggedIn }) {
@@ -66,7 +66,6 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
       </div>
       <nav>
         <Link className="button-link" to="/">Home</Link>
-        <Link className="button-link" to="/ContactUs">Contact Us</Link>
 
         {isLoggedIn ? (
           <>

@@ -240,7 +240,7 @@ const Profile = () => {
                   value={editedProfile.name}
                   onChange={handleChange}
                   disabled={!isEditing}
-                  className="input-field"
+                  className="i"
                 />
               </div>
 
@@ -250,7 +250,7 @@ const Profile = () => {
                   type="email"
                   value={session?.user?.email || ''}
                   disabled={true}
-                  className="input-field"
+                  className="i"
                 />
               </div>
 
@@ -262,7 +262,7 @@ const Profile = () => {
                   value={editedProfile.phone}
                   onChange={handleChange}
                   disabled={!isEditing}
-                  className="input-field"
+                  className="i"
                 />
               </div>
 
@@ -274,7 +274,7 @@ const Profile = () => {
                   value={editedProfile.age}
                   onChange={handleChange}
                   disabled={!isEditing}
-                  className="input-field"
+                  className="i"
                 />
               </div>
 
@@ -285,7 +285,7 @@ const Profile = () => {
                   value={editedProfile.travelPreference}
                   onChange={handleChange}
                   disabled={!isEditing}
-                  className="input-field"
+                  className="i"
                 >
                   {travelPreferences.map((style) => (
                     <option key={style} value={style}>
