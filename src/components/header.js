@@ -48,6 +48,8 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
       setHeaderClass("trip-header");
     } else if (location.pathname === "/form") {
       setHeaderClass("form-header");
+    } else if (location.pathname === "/ForgetPassword") {
+      setHeaderClass("ForgetPassword-header");
     } else {
       setHeaderClass("default-header");
     }
@@ -82,13 +84,13 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
         {isLoggedIn ? (
           <>
             <Link className="button-link" to="/Tripplanner" onClick={() => setMenuOpen(false)}>
-              Trip Planner 🗺️
+              Trip Planner
             </Link>
             <Link className="button-link" to="/form" onClick={() => setMenuOpen(false)}>
               Profile
             </Link>
             <Link
-              className="button-link"
+              className="button-link1"
               onClick={() => {
                 handleLogout();
                 setMenuOpen(false);
