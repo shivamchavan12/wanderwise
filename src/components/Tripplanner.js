@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, Luggage, Shield, Utensils, Map } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './TripPlanner.css';
+import NotebookModal from './NotebookModal';
 import axios from 'axios';
 
 const ORS_API_KEY = '5b3ce3597851110001cf6248cf81ba6ea51c4b89a5d8a0d0fce679b5';
@@ -96,6 +97,9 @@ async function geocodePlace(placeName) {
 }
 
 function TripPlanner() {
+
+  const [isItineraryModalOpen, setIsItineraryModalOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     startLocation: '',
     destination: '',
@@ -340,23 +344,26 @@ function TripPlanner() {
       </div>
 
       <div className="recommendations-container">
-        {activeTab === 'itinerary' && (
+       {activeTab === 'itinerary' && (
           <motion.div className="itinerary-section">
             {loading ? (
               <p>Loading itinerary...</p>
             ) : recommendations.itinerary && recommendations.itinerary.length > 0 ? (
-              recommendations.itinerary.map((day, index) => (
-                <div key={index} className="day-card">
-                  <h3>{day.title}</h3>
-                  <ul>
-                    {day.activities && day.activities.length > 0 ? (
-                      day.activities.map((activity, i) => <li key={i}>{activity}</li>)
-                    ) : (
-                      <li>No activities available</li>
-                    )}
-                  </ul>
-                </div>
-              ))
+              <div style={{ textAlign: 'center' }}>
+                <p className="success-message">Itinerary Generated!</p>
+                <button
+                  className="view-itinerary-btn"
+                  onClick={() => setIsItineraryModalOpen(true)}
+                >
+                  View Itinerary
+                </button>
+                
+                <NotebookModal
+                  isOpen={isItineraryModalOpen}
+                  onClose={() => setIsItineraryModalOpen(false)}
+                  itinerary={recommendations.itinerary}
+                />
+              </div>
             ) : (
               <p>No itinerary available based on your input.</p>
             )}

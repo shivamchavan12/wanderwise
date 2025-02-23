@@ -209,111 +209,116 @@ const Profile = () => {
   if (loading) {
     return <div className="profile-page">Loading...</div>;
   }
-
   return (
-    <div className="hi">
-      <div className="profile-page">
-        {showAlert.show && (
-          <div className={`alert ${showAlert.type === 'error' ? 'alert-error' : 'alert-success'}`}>
-            {showAlert.message}
-          </div>
-        )}
-
-        <div className="profile-card">
-          <div className="profile-content">
-            <div className="profile-right">
-              <div className="form-grid">
-                <div className="input-group">
-                  <label className="input-label">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={editedProfile.name}
-                    onChange={handleChange}
-                    disabled={!isEditing}
-                    className="i"
-                  />
+    <div className="profile-page">
+      {showAlert.show && (
+        <div className={`alert ${showAlert.type === 'error' ? 'alert-error' : 'alert-success'}`}>
+          {showAlert.message}
+        </div>
+      )}
+  
+      <div className="profile-card">
+        <div className="card-container">
+          {/* Form Section on the Left */}
+          <div className="form-section">
+            <div className="profile-content">
+              <div className="profile-right">
+                <div className="form-grid">
+                  <div className="input-group">
+                    <label className="input-label">Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={editedProfile.name}
+                      onChange={handleChange}
+                      disabled={!isEditing}
+                      className="i"
+                    />
+                  </div>
+  
+                  <div className="input-group">
+                    <label className="input-label">Email</label>
+                    <input
+                      type="email"
+                      value={session?.user?.email || ''}
+                      disabled={true}
+                      className="i"
+                    />
+                  </div>
+  
+                  <div className="input-group">
+                    <label className="input-label">Phone</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={editedProfile.phone}
+                      onChange={handleChange}
+                      disabled={!isEditing}
+                      className="i"
+                    />
+                  </div>
+  
+                  <div className="input-group">
+                    <label className="input-label">Age</label>
+                    <input
+                      type="number"
+                      name="age"
+                      value={editedProfile.age}
+                      onChange={handleChange}
+                      disabled={!isEditing}
+                      className="i"
+                    />
+                  </div>
+  
+                  <div className="input-group">
+                    <label className="input-label">Travel Style</label>
+                    <select
+                      name="travelPreference"
+                      value={editedProfile.travelPreference}
+                      onChange={handleChange}
+                      disabled={!isEditing}
+                      className="i"
+                    >
+                      {travelPreferences.map((style) => (
+                        <option key={style} value={style}>
+                          {style}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-
-                <div className="input-group">
-                  <label className="input-label">Email</label>
-                  <input
-                    type="email"
-                    value={session?.user?.email || ''}
-                    disabled={true}
-                    className="i"
-                  />
-                </div>
-
-                <div className="input-group">
-                  <label className="input-label">Phone</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={editedProfile.phone}
-                    onChange={handleChange}
-                    disabled={!isEditing}
-                    className="i"
-                  />
-                </div>
-
-                <div className="input-group">
-                  <label className="input-label">Age</label>
-                  <input
-                    type="number"
-                    name="age"
-                    value={editedProfile.age}
-                    onChange={handleChange}
-                    disabled={!isEditing}
-                    className="i"
-                  />
-                </div>
-
-                <div className="input-group">
-                  <label className="input-label">Travel Style</label>
-                  <select
-                    name="travelPreference"
-                    value={editedProfile.travelPreference}
-                    onChange={handleChange}
-                    disabled={!isEditing}
-                    className="i"
-                  >
-                    {travelPreferences.map((style) => (
-                      <option key={style} value={style}>
-                        {style}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="button-group">
-                {!isEditing ? (
-                  <>
+  
+                <div className="button-group">
+                  {!isEditing ? (
                     <button
                       onClick={() => setIsEditing(true)}
                       className="button button-primary"
                     >
                       ✏️ Edit Profile
                     </button>
-                  </>
-                ) : (
-                  <>
-                    <button onClick={handleSave} className="button button-success">
-                      💾 Save Changes
-                    </button>
-                    <button onClick={handleCancel} className="button button-secondary">
-                      ❌ Cancel
-                    </button>
-                  </>
-                )}
+                  ) : (
+                    <>
+                      <button onClick={handleSave} className="button button-success">
+                        💾 Save Changes
+                      </button>
+                      <button onClick={handleCancel} className="button button-secondary">
+                        ❌ Cancel
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </div>
+  
+          {/* Image Section on the Right */}
+          <div className="image-section"></div>
         </div>
       </div>
     </div>
   );
+  
+
 };
 
 export default Profile;
