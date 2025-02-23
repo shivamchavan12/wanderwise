@@ -50,14 +50,14 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
         </div>
         <nav>
           <Link className="button-link" to="/">Home</Link>
-          <Link className="button-link" to="/recipes">Contact Us</Link>
+          <Link className="button-link" to="/ContactUs">Contact Us</Link>
           <Link className="button-link" to="/Tripplanner">Trip Planner 🗺️</Link>
           
           {isLoggedIn ? (
             <>
               <Link className="button-link" to="/Tripplanner">Trip Planner 🗺️</Link>
               <Link className="button-link" to="/pantry">Profile</Link>
-              <button className="button-link" onClick={handleLogout}>Logout</button>
+              <Link className="button-link" onClick={handleLogout}>Logout</Link>
             </>
           ) : (
             <Link className="button-link" to="/login">Login/SignIn</Link>
