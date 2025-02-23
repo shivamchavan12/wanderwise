@@ -73,7 +73,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
           </div>
 
           {/* Second Feature Set */}
@@ -109,13 +108,6 @@ const Home = () => {
         </section>
       </div>
     </>
-=======
-          ))}
-        </div>
-      </section>
-      {/* <Footer /> */}
-    </div>
->>>>>>> upstream/main
   );
 };
 
