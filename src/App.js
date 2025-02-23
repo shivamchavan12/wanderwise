@@ -5,7 +5,6 @@ import Login from './components/login';
 import Dashboard from './components/dashboard';
 import Home from './components/Home';
 import Trip from './components/Tripplanner';
-import ContactUs from './components/ContactUs';
 
 
 // function App() {
@@ -49,7 +48,6 @@ function App() {
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/Tripplanner" element={<Trip />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
     </Router>
   );
