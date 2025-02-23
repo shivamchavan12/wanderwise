@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
+  margin-top:10vh;
 }
 
 /* Alert */
@@ -49,8 +50,9 @@
   align-items: center;      /* Vertically center the form */
   justify-content: center;  /* Horizontally center the form */
   height: 100%;             /* Fill the available height */
-  z-index:100;
+  z-index: 100;
 }
+
 /* Profile Content and Form Grid */
 .profile-content {
   display: flex;
@@ -163,7 +165,7 @@ textarea.i {
   background-repeat: no-repeat;
   background-position: center;
   min-height: 300px; /* Adjust height as needed */
-  width:100%;
+  width: 100%;
 }
 
 /* Responsive Adjustments */
@@ -213,5 +215,52 @@ textarea.i {
   
   .image-section {
     min-height: 150px;
+  }
+}
+
+/* For large devices (e.g., desktops with width 1200px and above) */
+@media (min-width: 1200px) {
+  .profile-page {
+    padding: 3rem; /* Increased padding for larger screens */
+  }
+  
+  .alert {
+    padding: 1.5rem;
+    max-width: 1000px; /* Wider alert box */
+  }
+  
+  .profile-card {
+    width: 80%;         /* Larger width */
+    max-width: 1400px;    /* Expanded maximum width */
+  }
+  
+  .form-section {
+    padding: 3rem;
+  }
+  
+  .form-grid {
+    gap: 1.5rem; /* More space between grid items */
+  }
+  
+  /* Increase font sizes for better readability */
+  body {
+    font-size: 18px; /* Base font size for larger screens */
+  }
+  
+  .input-label {
+    font-size: 1.125rem;
+  }
+  
+  .i {
+    font-size: 1.125rem;
+  }
+  
+  .button {
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+  
+  .image-section {
+    min-height: 400px; /* Increase image section height */
   }
 }
