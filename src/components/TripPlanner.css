@@ -130,6 +130,8 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 9999;
   }
   .recommendations-tabs button {
     background: #eee;
@@ -145,6 +147,8 @@
   .recommendations-tabs button.active {
     background: var(--primary-color);
     color: #fff;
+    position: relative;
+    z-index: 9999; /* Higher than any overlapping container */
   }
   .recommendations-tabs button:hover {
     background: var(--secondary-color);

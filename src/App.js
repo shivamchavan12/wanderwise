@@ -6,6 +6,8 @@ import Dashboard from './components/dashboard';
 import Home from './components/Home';
 import Trip from './components/Tripplanner';
 import Profile from './components/form';
+import ContactUs from './components/ContactUs';
+
 
 // function App() {
 //   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -49,6 +51,7 @@ function App() {
         <Route path="/Tripplanner" element={<Trip />} />
         <Route path="/form" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
     </Router>
   );
