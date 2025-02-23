@@ -158,26 +158,29 @@ const Profile = () => {
 
   const handleSave = async () => {
     if (!validateProfile()) return;
-
+  
     try {
       console.log("Attempting to update profile:", editedProfile);
+      
+      // Convert age to a number (or use null/default if empty)
+      const ageValue = editedProfile.age ? Number(editedProfile.age) : null;
       
       const { data, error } = await supabase
         .from('profile')
         .update({
           name: editedProfile.name,
           phone: editedProfile.phone,
-          age: editedProfile.age,
+          age: ageValue,  // Use numeric value
           travelPreference: editedProfile.travelPreference
         })
         .eq('email', session.user.email)
         .select();
-
+  
       if (error) {
         console.error("Update error:", error);
         throw error;
       }
-
+  
       console.log("Update successful:", data);
       setProfile({ ...editedProfile });
       setIsEditing(false);
@@ -187,6 +190,7 @@ const Profile = () => {
       showAlertMessage(error.message, "error");
     }
   };
+  
 
   const handleCancel = () => {
     setEditedProfile({ ...profile });

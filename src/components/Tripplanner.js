@@ -228,7 +228,7 @@ function TripPlanner() {
     if (lower.includes('car')) return '🚗';
     return '🚌';
   }
-
+  const cleanText = (text) => text.replace(/[#*]/g, '');
   return (
     <motion.div className="planner-container">
       <div className="header">
@@ -370,64 +370,75 @@ function TripPlanner() {
           </motion.div>
         )}
 
-        {activeTab === 'accommodations' && (
-          <div className="accommodations-grid">
-            {recommendations.accommodations.length ? (
-              recommendations.accommodations.map((item, index) => {
-                const parts = item.includes(':') ? item.split(':') : [item];
-                return (
-                  <div key={index} className="accommodation-card">
-                    <h4>{parts[0]}</h4>
-                    {parts.length > 1 && <p>{parts.slice(1).join(':')}</p>}
-                  </div>
-                );
-              })
-            ) : (
-              <p>No accommodations suggestions available.</p>
-            )}
-          </div>
-        )}
+{activeTab === 'accommodations' && (
+  <div className="accommodations-section">
+    {recommendations.accommodations.length ? (
+      <div className="accommodations-text">
+        {recommendations.accommodations.map((item, index) => {
+          const cleanedItem = cleanText(item);
+          const [title, ...details] = cleanedItem.split(':');
+          return (
+            <p key={index}>
+              <strong>{title.trim()}</strong>
+              {details.length > 0 ? `: ${details.join(':').trim()}` : ''}
+            </p>
+          );
+        })}
+      </div>
+    ) : (
+      <p>No accommodation suggestions available.</p>
+    )}
+  </div>
+)}
 
-        {activeTab === 'transport' && (
-          <div className="transport-list">
-            {recommendations.transport.length ? recommendations.transport.map((item, index) => (
-              <div key={index} className="transport-item">
-                <div className="transport-icon">{getTransportIcon(item)}</div>
-                <p>{item}</p>
-              </div>
-            )) : <p>No transportation options available.</p>}
-          </div>
-        )}
-
+{activeTab === 'transport' && (
+  <div className="transport-list">
+    {recommendations.transport.length ? recommendations.transport.map((item, index) => {
+      const cleanItem = cleanText(item);
+      return (
+        <div key={index} className="transport-item">
+          <div className="transport-icon">{getTransportIcon(cleanItem)}</div>
+          <p>{cleanItem}</p>
+        </div>
+      );
+    }) : <p>No transportation options available.</p>}
+  </div>
+)}
         {activeTab === 'packing' && (
-          <div className="list-section">
-            {recommendations.packing.length ? (
-              <ul>
-                {recommendations.packing.map((item, index) => <li key={index}>{item}</li>)}
-              </ul>
-            ) : <p>No packing list available.</p>}
-          </div>
-        )}
+  <div className="list-section">
+    {recommendations.packing.length ? (
+      <ul>
+        {recommendations.packing.map((item, index) => (
+          <li key={index}>{cleanText(item)}</li>
+        ))}
+      </ul>
+    ) : <p>No packing list available.</p>}
+  </div>
+)}
 
-        {activeTab === 'safety' && (
-          <div className="list-section">
-            {recommendations.safety.length ? (
-              <ul>
-                {recommendations.safety.map((item, index) => <li key={index}>{item}</li>)}
-              </ul>
-            ) : <p>No safety tips available.</p>}
-          </div>
-        )}
+{activeTab === 'safety' && (
+  <div className="list-section">
+    {recommendations.safety.length ? (
+      <ul>
+        {recommendations.safety.map((item, index) => (
+          <li key={index}>{cleanText(item)}</li>
+        ))}
+      </ul>
+    ) : <p>No safety tips available.</p>}
+  </div>
+)}
 
-        {activeTab === 'cuisine' && (
-          <div className="list-section">
-            {recommendations.cuisine.length ? (
-              <ul>
-                {recommendations.cuisine.map((item, index) => <li key={index}>{item}</li>)}
-              </ul>
-            ) : <p>No cuisine recommendations available.</p>}
-          </div>
-        )}
+{activeTab === 'cuisine' && (
+  <div className="list-section">
+    {recommendations.cuisine.length ? (
+      <ul>
+        {recommendations.cuisine.map((item, index) => (
+          <li key={index}>{cleanText(item)}</li>
+        ))}
+      </ul>
+    ) : <p>No cuisine recommendations available.</p>}
+  </div>
+)}
 
         {activeTab === 'gallery' && (
           <div
