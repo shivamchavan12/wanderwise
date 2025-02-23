@@ -1,12 +1,22 @@
 /* Base styles */
+.hi{
+  background-image: url('../assests/hello.png');
+  width: 100%; /* Adjust according to your needs */
+  height: 90%; /* Adjust the height as needed */
+  background-size: contain; /* Scale the background image to fit the container */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image in the container */
+  background-color: white;
+}
+
 .profile-page {
-  min-height: 100vh;
-  background-color: #f9fafb;
+  min-height: 95vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;  
   justify-content: center;
+  width: 100vw;
 }
 
 /* Success Alert */
@@ -22,7 +32,7 @@
   animation: slideDown 0.3s ease-out;
 }
 
-@keyframes slideDown {
+/* @keyframes slideDown {
   from {
     transform: translateY(-20px);
     opacity: 0;
@@ -31,7 +41,7 @@
     transform: translateY(0);
     opacity: 1;
   }
-}
+} */
 
 /* Profile Card */
 .profile-card {
@@ -39,7 +49,7 @@
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   padding: 2rem;
   transition: transform 0.3s ease;
 }
@@ -51,7 +61,7 @@
 /* Profile Content */
 .profile-content {
   display: flex;
-  gap: 2rem;
+  gap:1;
 }
 
 /* Left Section */
@@ -62,19 +72,6 @@
   gap: 1rem;
   transition: opacity 0.3s ease;
 }
-
-.profile-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
-}
-
-.profile-email {
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
 .preview-label {
   font-size: 0.75rem;
   color: #6b7280;
@@ -151,6 +148,7 @@ textarea.i {
   justify-content: center;
   gap: 0.5rem;
   transition: background-color 0.2s;
+  z-index: 100;
 }
 
 .button-primary {

@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import backgroundImage from "../assests/homebackground.jpg";
-import Paris from "../assests/paris.jpg";
 
 const Home = () => {
   const navigate = useNavigate(); // Create the navigate function

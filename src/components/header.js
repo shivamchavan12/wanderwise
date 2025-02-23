@@ -19,21 +19,23 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
   const [headerClass, setHeaderClass] = useState("default-header");
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+  
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY > prevScrollY && currentScrollY > 50) {
-        setHideHeader(true); // Hide header on scroll down
-      } else {
-        setHideHeader(false); // Show header on scroll up
+  
+      if (currentScrollY === 0) {
+        setHideHeader(false); // Show header when at the top
+      } else if (currentScrollY > lastScrollY) {
+        setHideHeader(true); // Hide header when scrolling down
       }
-
-      setPrevScrollY(currentScrollY);
+  
+      lastScrollY = currentScrollY;
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollY]);
+  }, []);
 
   useEffect(() => {
     // Update headerClass based on pathname
@@ -43,7 +45,9 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
       setHeaderClass("login-header");
     } else if (location.pathname === "/Tripplanner") {
       setHeaderClass("trip-header");
-    } else {
+    } else if (location.pathname === "/form") {
+        setHeaderClass("form-header");
+    }  else {
       setHeaderClass("default-header");
     }
   }, [location.pathname]);  // This ensures headerClass updates when pathname changes

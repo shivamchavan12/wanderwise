@@ -1,8 +1,9 @@
 .footer {
-    background-color: #1d1d1d;
+    background-color: black;
     color: white;
     padding: 20px 0;
     text-align: center;
+    margin-top:0;
   }
   
   .footer-container {
@@ -65,6 +66,6 @@
   .footer-bottom {
     margin-top: 20px;
     padding: 10px 0;
-    background-color: #111;
+    background-color: black;
   }
   

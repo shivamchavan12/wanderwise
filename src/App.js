@@ -10,29 +10,6 @@ import Forget from "./components/ForgetPassword"; // Import it
 import Profile from './components/form';
 
 
-// function App() {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-//   useEffect(() => {
-//     const userLoggedIn = localStorage.getItem('loggedIn');
-//     if (userLoggedIn) {
-//       setIsLoggedIn(true);
-//     }
-//   }, []);
-//   return (  
-//     <Router>
-//       <Header isLoggedIn={isLoggedIn} />
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/dashboard" element={<Dashboard />} />
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

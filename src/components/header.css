@@ -98,3 +98,8 @@ nav a {
     font-size: 18px;
     border: 2px white solid;
 }
+
+.form-header{
+    border: 1px solid black;
+    background-color: black;
+}
