@@ -60,4 +60,3 @@ We want you to have the best time without the hassle of planning. Let us handle 
 
 ## Have a Fun Trip! 🌍✈️
 
-**Yours Hungrily,** 😊
